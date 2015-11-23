@@ -58,11 +58,5 @@
         "babelify"
       ]
     ]
-  },
-  "babel": {
-    "presets": [
-      "react",
-      "es2015"
-    ]
   }
 }
