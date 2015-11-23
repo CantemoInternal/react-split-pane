@@ -56,7 +56,7 @@ export default React.createClass({
         if (this.state.active) {
             const ref = this.refs.pane1;
             if (ref) {
-                const node = ReactDOM.findDOMNode(ref);
+                const node = ref.getDOMNode();
                 if (window.getComputedStyle) {
                     const styles = window.getComputedStyle(node);
                     const width = styles.width.replace('px', '');
