@@ -58,10 +58,10 @@
       ]
     ]
   },
-  "babel": {
-    "presets": [
-      "react",
-      "es2015"
-    ]
-  }
+//  "babel": {
+//    "presets": [
+//      "react",
+//      "es2015"
+//    ]
+//  }
 }

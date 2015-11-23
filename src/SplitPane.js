@@ -73,7 +73,7 @@ export default React.createClass({
                     });
 
                     if (newSize >= this.props.minSize) {
-                        if (this.props.maxSize !== null || newSize <= this.props.maxSize) {
+                        if (this.props.maxSize === null || newSize <= this.props.maxSize) {
                             if (this.props.onChange) {
                               this.props.onChange(newSize);
                             }
