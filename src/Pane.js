@@ -4,7 +4,7 @@ import React from 'react';
 import VendorPrefix from 'react-vendor-prefix';
 
 
-export default React.createClass({
+const Pane = React.createClass({
 
 
     getInitialState() {
@@ -36,5 +36,7 @@ export default React.createClass({
         return (<div className={classes.join(' ')} style={prefixed.styles}>{this.props.children}</div>);
     }
 });
+
+module.exports = Pane;
 
 

@@ -6,8 +6,7 @@ import Pane from './Pane';
 import Resizer from './Resizer';
 import VendorPrefix from 'react-vendor-prefix';
 
-
-export default React.createClass({
+const SplitPane = React.createClass({
 
     getInitialState() {
         return {
@@ -148,3 +147,5 @@ export default React.createClass({
         );
     }
 });
+
+module.exports = SplitPane;

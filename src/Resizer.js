@@ -3,7 +3,7 @@
 import React from 'react';
 
 
-export default React.createClass({
+const Resizer = React.createClass({
 
     onMouseDown(event) {
         this.props.onMouseDown(event);
@@ -15,5 +15,8 @@ export default React.createClass({
         return (<span className={classes.join(' ')} onMouseDown={this.onMouseDown} />);
     }
 });
+
+module.exports = Resizer;
+
 
 
