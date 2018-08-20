@@ -3,16 +3,14 @@
 import React from 'react';
 import VendorPrefix from 'react-vendor-prefix';
 
+class Pane extends React.PureComponent {
+    constructor(props) {
+      super(props);
+  
+      this.state = {};
+    }
 
-const Pane = React.createClass({
-
-
-    getInitialState() {
-        return {};
-    },
-
-
-    render() {
+    render = () => {
         const split = this.props.split;
         const classes = ['Pane', split];
 
@@ -34,8 +32,8 @@ const Pane = React.createClass({
         const prefixed = VendorPrefix.prefix({styles: style});
 
         return (<div className={classes.join(' ')} style={prefixed.styles}>{this.props.children}</div>);
-    }
-});
+    };
+}
 
 module.exports = Pane;
 

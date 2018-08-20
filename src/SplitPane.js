@@ -6,26 +6,17 @@ import Pane from './Pane';
 import Resizer from './Resizer';
 import VendorPrefix from 'react-vendor-prefix';
 
-const SplitPane = React.createClass({
+class SplitPane extends React.PureComponent {
+    constructor(props) {
+      super(props);
 
-    getInitialState() {
-        return {
-            active: false,
-            resized: false
-        };
-    },
+      this.state = {
+        active: false,
+        resized: false
+      };
+    }
 
-
-    getDefaultProps() {
-        return {
-            split: 'vertical',
-            minSize: 0,
-            maxSize: null
-        };
-    },
-
-
-    componentDidMount() {
+    componentDidMount = () => {
         document.addEventListener('mouseup', this.onMouseUp);
         document.addEventListener('mousemove', this.onMouseMove);
         const ref = this.refs.pane1;
@@ -34,25 +25,25 @@ const SplitPane = React.createClass({
                 size: this.props.defaultSize
             });
         }
-    },
+    };
 
 
-    componentWillUnmount() {
+    componentWillUnmount = () => {
         document.removeEventListener('mouseup', this.onMouseUp);
         document.removeEventListener('mousemove', this.onMouseMove);
-    },
+    };
 
 
-    onMouseDown(event) {
+    onMouseDown = event => {
         let position = this.props.split === 'vertical' ? event.clientX : event.clientY;
         this.setState({
             active: true,
             position: position
         });
-    },
+    };
 
 
-    onMouseMove(event) {
+    onMouseMove = event => {
         if (this.state.active) {
             const ref = this.refs.pane1;
             if (ref) {
@@ -84,24 +75,24 @@ const SplitPane = React.createClass({
                 }
             }
         }
-    },
+    };
 
 
-    onMouseUp() {
+    onMouseUp = () => {
         this.setState({
             active: false
         });
-    },
+    };
 
 
-    merge: function (into, obj) {
+    merge = (into, obj) => {
         for (let attr in obj) {
             into[attr] = obj[attr];
         }
-    },
+    };
 
 
-    render() {
+    render = () => {
 
         const split = this.props.split;
 
@@ -145,7 +136,13 @@ const SplitPane = React.createClass({
                 <Pane ref="pane2" key="pane2" split={split}>{children[1]}</Pane>
             </div>
         );
-    }
-});
+    };
+}
+
+SplitPane.defaultProps =  {
+    split: 'vertical',
+    minSize: 0,
+    maxSize: null
+};
 
 module.exports = SplitPane;
